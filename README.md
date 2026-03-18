@@ -1,77 +1,119 @@
-# Battleship Game (Java)
+# Java Battleship Game  
+*A console-based implementation of the classic Battleship game with turn-based multiplayer logic and state-driven game flow.*
 
-A console implementation of the classic Battleship game written in Java.
-
-This project was developed as part of the Hyperskill **Introduction to Java** track.  
-It simulates the traditional Battleship board game where two players place ships and take turns trying to sink each other's fleet.
-
----
-
-## Features
-
-- Ship placement system
-- Shooting mechanics
-- Fog of war
-- Multiplayer mode
-- Turn-based gameplay
-- Input validation and error handling
+![Java](https://img.shields.io/badge/Java-Backend-orange)
+![Gradle](https://img.shields.io/badge/Build-Gradle-blue)
+![CLI](https://img.shields.io/badge/Interface-CLI-lightgrey)
 
 ---
 
-## Technologies Used
+## The 'Why' & Real-World Use Case
 
-- Java
-- Gradle
-- IntelliJ IDEA
+Turn-based systems require strict control over state transitions, input validation, and rule enforcement. This project simulates a two-player Battleship game, focusing on how game state is managed and validated in a deterministic environment.
 
----
-
-## Project Structure
-java-battleship-game
-│
-├── Battleship with Java
-│ └── task
-│ └── src
-│ └── battleship
-│ └── Main.java
-│
-├── gradle
-├── build.gradle
-├── settings.gradle
-└── README.md
+The concepts implemented here—such as **state management, input validation, and rule-driven execution**—are directly applicable to backend systems, workflow engines, and transactional applications.
 
 ---
 
-## How to Run
+## Architecture & Technical Decisions
 
-Clone the repository:
+- **State-Driven Game Flow**
+  - The game progresses through clearly defined states:
+    - Ship placement
+    - Player turns
+    - Hit/miss evaluation
+    - Win condition
+
+- **Grid-Based Data Structure**
+  - 10x10 matrix representing the game board
+  - Tracks ship positions, hits, and misses
+
+- **Input Parsing & Validation**
+  - Coordinates are parsed and validated
+  - Prevents invalid placements and duplicate shots
+
+- **Separation of Responsibilities**
+  - Game logic is separated from input/output handling
+  - Improves readability and maintainability
+
+- **Turn-Based Logic**
+  - Alternating player turns
+  - Ensures fair and consistent gameplay
+
+---
+
+## Tech Stack
+
+- Java  
+- Gradle  
+- CLI (Console-based interaction)  
+
+---
+
+## Getting Started
+
+### Clone the repository
+```bash id="k92kdl"
 git clone https://github.com/BedirAvsar/java-battleship-game.git
+cd java-battleship-game
+```
 
+### Build the project
+```bash id="dk21ld"
+./gradlew build
+```
 
-Open the project in **IntelliJ IDEA** and run the `Main` class.
+### Run the game
+```bash id="sdlk21"
+./gradlew run
+```
 
----
-
-## Game Rules
-
-1. Each player places ships on a 10×10 board.
-2. Players take turns shooting at coordinates.
-3. Hits and misses are displayed on the board.
-4. Ships are sunk when all their cells are hit.
-5. The player who sinks all enemy ships wins.
-
----
-
-## Project Source
-
-Hyperskill project page:  
-https://hyperskill.org/projects/383
+> If `run` task is not configured, you can execute the main class manually via your IDE.
 
 ---
 
-## Author
+## Usage
 
-**Bedir Avsar**
+### Game Flow
 
-GitHub:  
-https://github.com/BedirAvsar
+1. Player 1 places ships  
+2. Player 2 places ships  
+3. Players take turns shooting  
+4. Game continues until all ships are sunk  
+
+### Controls
+
+| Action | Input |
+|--------|------|
+| Place ship | Coordinates (e.g., A1 A5) |
+| Shoot | Single coordinate (e.g., B3) |
+
+### Game Rules
+
+- 10×10 board  
+- Ships must be placed in straight lines  
+- Ships cannot overlap  
+- Hits and misses are tracked  
+- First player to sink all ships wins  
+
+---
+
+## What I Learned
+
+This project focuses on **core programming fundamentals using Java** rather than frameworks.
+
+### Key Takeaways
+
+- Designing a **state-driven system**
+- Implementing **grid-based algorithms**
+- Writing robust **input validation logic**
+- Managing **turn-based workflows**
+- Structuring a clean CLI application
+
+### Biggest Challenge
+
+The most challenging part was managing **consistent game state across turns**, especially ensuring that ship placement, hit detection, and win conditions were all correctly synchronized without introducing logical bugs.
+
+---
+
+This project demonstrates the ability to design and implement a **rule-based interactive system**, emphasizing clean logic, correctness, and maintainability.
